@@ -4,9 +4,9 @@
 **Group Project — Part 2: Spotify-inspired C++ recommendation program.**
 
 ## Group Members
-- [Fakhira Batrisyia Binti Mohd Azman] — [kkhlmao]
-- [Name 2] — [GitHub username]
-- [Name 3] — [GitHub username]
-- [Name 4] — [GitHub username]
-- [Name 5] — [GitHub username]
-- [Name 6] — [GitHub username]
+- [FAKHIRA BATRISYIA BINTI MOHD AZMAN] — [kkhlmao]
+- [DANIA AISHA BINTI IZWAN ZARIK] — [daniazarik]
+- [WAN NUR FARHANAH BINTI WAN AMIR NIZAM] — [farhanahamir]
+- [BAVISSHAA A/P JAYASANKARAN] — [jbavisshaa]
+- [SITI AISYAH BINTI ARSHAD] — [GitHub username]
+- [NUR AMIRAH SABRINA BINTI NUR AKMALRUDIN] — [GitHub username]
