@@ -1,2 +1,12 @@
-# Spotify-Project-G9-FCI4
-LDCW6123 Group Project — Part 2: Spotify-inspired C++ recommendation program.
+# Spotify Recommendation Assistant
+
+**LDCW6123 — Fundamentals of Digital Competence for Programmers**
+**Group Project — Part 2: Spotify-inspired C++ recommendation program.**
+
+## Group Members
+- [Fakhira Batrisyia Binti Mohd Azman] — [kkhlmao]
+- [Name 2] — [GitHub username]
+- [Name 3] — [GitHub username]
+- [Name 4] — [GitHub username]
+- [Name 5] — [GitHub username]
+- [Name 6] — [GitHub username]
