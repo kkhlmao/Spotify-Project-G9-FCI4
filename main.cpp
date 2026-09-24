@@ -80,17 +80,27 @@ int main() {
 //      parameters moodInput / genreInput.
 // ================================================================
 void displayWelcomeBanner() {
-    // TODO (Wan): print welcome banner here
-    cout << "[TODO: welcome banner not implemented yet]\n";
+    cout << "Welcome to SPOTIFY!" << endl;
+    cout << "=========================================" << endl;
+    cout << "Playlist Generator & Subscription Advisor" << endl;
+    cout << "=========================================" << endl;
+    cout << "Answer a few quick questions and get\nreccomended a playlist and subscription\nplan, personalised just for you!" << endl;
+    cout << "=========================================" << endl;
 }
 
 void getUserInputs(string &moodInput, string &genreInput) {
-    // TODO (Wan): prompt + getline() for moodInput
-    // TODO (Wan): prompt + getline() for genreInput
-    moodInput = "";
-    genreInput = "";
-}
+    cout << "How are you feeling today?" << endl;
+    cout << "Choose your MOOD: Happy / Sad / Chill / Focus" << endl;
+    cout << "Mood: ";
+    getline(cin, moodInput);
+    cout << endl;
 
+    cout << "What kind of music are you into?" << endl;
+    cout << "Choose a GENRE: Pop, Hip-Hop, Rock, EDM, Lo-fi, etc." << endl;
+    cout << "Genre: ";
+    getline(cin, genreInput);
+    cout << endl;
+}
 
 // ================================================================
 // MEMBER 2: Aishah
