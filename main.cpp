@@ -120,24 +120,40 @@ string validateMood(string moodInput) {
 
 
 // ================================================================
+// ================================================================
+// ================================================================
 // MEMBER 3: Visshaa
 // Playlist recommendation
-// TODO:
-//   1. In getPlaylistName(): combine mood + genre into a playlist
-//      title, e.g. mood + " " + genre + " Mix".
-//   2. In getPlaylistDescription(): use if/else if on mood to
-//      return a one-line description for Happy / Sad / Chill / Focus.
+// ----------------------------------------------------------------
+// 1. In getPlaylistName(): combine mood + genre into a playlist
+//    title, e.g. mood + " " + genre + " Mix".
+// 2. In getPlaylistDescription(): use if/else if on mood to
+//    return a one-line description for Happy / Sad / Chill / Focus.
 // ================================================================
 string getPlaylistName(string mood, string genre) {
-    // TODO (Visshaa): build playlist name from mood + genre
-    return "[TODO: playlist name]";
+    // Build playlist name from mood + genre
+    // Example: mood = "Happy", genre = "Pop" -> "Happy Pop Mix"
+    return mood + " " + genre + " Mix";
 }
 
 string getPlaylistDescription(string mood) {
-    // TODO (Visshaa): return description text based on mood
-    return "[TODO: playlist description]";
+    // Return description text based on mood
+    if (mood == "Happy") {
+        return "Upbeat, feel-good tracks to lift your mood and keep you smiling.";
+    }
+    else if (mood == "Sad") {
+        return "Emotional, slower songs for reflection and comfort.";
+    }
+    else if (mood == "Chill") {
+        return "Relaxed, laid-back beats to help you unwind and de-stress.";
+    }
+    else if (mood == "Focus") {
+        return "Instrumental and low-distraction tracks for deep concentration.";
+    }
+    else {
+        return "A custom playlist made for your current vibe.";
+    }
 }
-
 
 // ================================================================
 // MEMBER 4: Dania
