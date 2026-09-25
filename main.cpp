@@ -114,9 +114,27 @@ void getUserInputs(string &moodInput, string &genreInput) {
 //   3. Return the validated mood with the first letter capitalized.
 // ================================================================
 string validateMood(string moodInput) {
-    // TODO (Aishah): validate + re-prompt loop goes here
-    return "Happy"; // placeholder so the program still runs
+
+    moodInput = toLowerCase(moodInput);
+
+    while (moodInput != "happy" &&
+           moodInput != "sad" &&
+           moodInput != "chill" &&
+           moodInput != "focus") {
+
+        cout << "Invalid mood. Please enter Happy, Sad, Chill, or Focus: ";
+        getline(cin, moodInput);
+
+        moodInput = toLowerCase(moodInput);
+    
+    }
+
+    moodInput[0] = toupper(moodInput[0]);
+
+    return moodInput;
 }
+
+
 
 
 // ================================================================
