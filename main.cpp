@@ -185,8 +185,40 @@ string getPlaylistDescription(string mood) {
 // ================================================================
 string getSubscriptionPlan(double weeklyHours, double monthlyBudget, double &monthlyCost) {
     // TODO (Dania): tier logic based on weeklyHours + monthlyBudget
-    monthlyCost = 0.0;
-    return "[TODO: plan]";
+    const double PREMIUM_PRICE = 14.90; // RM per month
+    const double FAMILY_PRICE  = 29.90; // RM per month
+
+    string plan;
+
+    if (weeklyHours < 5) {
+        // Light listener - Free plan is enough
+        plan = "Free";
+        monthlyCost = 0.0;
+    } else if (weeklyHours <= 15) {
+        // Moderate listener - suggest Premium if budget allows
+        if (monthlyBudget >= PREMIUM_PRICE) {
+            plan = "Premium";
+            monthlyCost = PREMIUM_PRICE;
+        } else {
+            plan = "Free";
+            monthlyCost = 0.0;
+        }
+    } else {
+        // Heavy listener (>15 hrs/week) - suggest Family if affordable,
+        // otherwise fall back to Premium, otherwise Free
+        if (monthlyBudget >= FAMILY_PRICE) {
+            plan = "Family";
+            monthlyCost = FAMILY_PRICE;
+        } else if (monthlyBudget >= PREMIUM_PRICE) {
+            plan = "Premium";
+            monthlyCost = PREMIUM_PRICE;
+        } else {
+            plan = "Free";
+            monthlyCost = 0.0;
+        }
+    }
+
+    return plan;
 }
 
 
