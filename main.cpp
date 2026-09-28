@@ -221,19 +221,33 @@ string getSubscriptionPlan(double weeklyHours, double monthlyBudget, double &mon
     return plan;
 }
 
-
 // ================================================================
 // MEMBER 5: Sabrina
-// Output formatting
-// TODO:
-//   Print all the results (mood, genre, playlist name + description,
-//   plan, monthly cost) using "====" and "----" dividers, spacing,
-//   and setprecision(2) for the monthly cost.
+// Output Formatting Implementation
 // ================================================================
 void displayFinalResult(string mood, string genre, string playlistName,
-                         string playlistDesc, string plan, double monthlyCost) {
-    // TODO (Sabrina): formatted final output goes here
-    cout << "[TODO: final result display not implemented yet]\n";
+                        string playlistDesc, string plan, double monthlyCost) {
+    
+  
+    cout << "\n========================================\n";
+    cout << "       🎧 RECOMMENDED PLAYLIST 🎧       \n";
+    cout << "========================================\n";
+    
+    // Playlist information and colon alignment
+    cout << "  🎭 Mood          : " << mood << "\n";
+    cout << "  🎵 Genre         : " << genre << "\n";
+    cout << "  🎶 Playlist Name : " << playlistName << "\n";
+    cout << "  📝 Description   : " << playlistDesc << "\n";
+
+  
+    cout << "----------------------------------------\n";
+    
+    // Subscription details and formatted price
+    cout << "  💳 Subscription  : " << plan << "\n";
+    cout << "  💰 Monthly Cost  : RM " << fixed << setprecision(2) << monthlyCost << "\n";
+    
+
+    cout << "========================================\n";
 }
 
 
