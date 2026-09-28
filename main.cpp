@@ -230,21 +230,21 @@ void displayFinalResult(string mood, string genre, string playlistName,
     
   
     cout << "\n========================================\n";
-    cout << "       🎧 RECOMMENDED PLAYLIST 🎧       \n";
+    cout << "           RECOMMENDED PLAYLIST           \n";
     cout << "========================================\n";
     
     // Playlist information and colon alignment
-    cout << "  🎭 Mood          : " << mood << "\n";
-    cout << "  🎵 Genre         : " << genre << "\n";
-    cout << "  🎶 Playlist Name : " << playlistName << "\n";
-    cout << "  📝 Description   : " << playlistDesc << "\n";
+    cout << "   Mood          : " << mood << "\n";
+    cout << "   Genre         : " << genre << "\n";
+    cout << "   Playlist Name : " << playlistName << "\n";
+    cout << "   Description   : " << playlistDesc << "\n";
 
   
     cout << "----------------------------------------\n";
     
     // Subscription details and formatted price
-    cout << "  💳 Subscription  : " << plan << "\n";
-    cout << "  💰 Monthly Cost  : RM " << fixed << setprecision(2) << monthlyCost << "\n";
+    cout << "   Subscription  : " << plan << "\n";
+    cout << "   Monthly Cost  : RM " << fixed << setprecision(2) << monthlyCost << "\n";
     
 
     cout << "========================================\n";
