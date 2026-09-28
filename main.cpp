@@ -1,14 +1,11 @@
 /*
  * ================================================================
- *  SPOTIFY PLAYLIST GENERATOR & SUBSCRIPTION ADVISOR (SKELETON)
+ *  SPOTIFY PLAYLIST GENERATOR & SUBSCRIPTION ADVISOR
  * ----------------------------------------------------------------
- *  This is the starting skeleton for the group. It compiles as-is
- *  (with empty/placeholder behaviour) so everyone can pull it,
- *  find their TODO section, and commit their own part without
- *  breaking the build for anyone else.
- *
- *  DO NOT rename the functions or change their parameters -
- *  main() already calls them exactly as declared below.
+ *  Course   : LDCW6123 - Fundamentals of Digital Competence
+ *             for Programmers
+ *  Part     : Part 2 - C++ Program (inspired by Spotify)
+ *  Group 9  : Wan, Aishah, Visshaa, Dania, Sabrina, Fakhira
  * ================================================================
  */
 
@@ -21,7 +18,7 @@
 using namespace std;
 
 // ================================================================
-// FUNCTION PROTOTYPES - do not remove or rename
+// FUNCTION PROTOTYPES 
 // ================================================================
 void displayWelcomeBanner();                                   // Member 1: Wan
 void getUserInputs(string &moodInput, string &genreInput);     // Member 1: Wan
@@ -42,7 +39,7 @@ string validateGenre(string genreInput);                        // Member 6: Fak
 
 
 // ================================================================
-// MAIN FUNCTION - already wired up, do not change
+// MAIN FUNCTION - ties all 6 sections together
 // ================================================================
 int main() {
     displayWelcomeBanner();
@@ -72,12 +69,6 @@ int main() {
 // ================================================================
 // MEMBER 1: Wan
 // Main menu + user input prompts
-// TODO:
-//   1. In displayWelcomeBanner(): print a welcome banner using
-//      "====" dividers and a short intro message.
-//   2. In getUserInputs(): prompt for mood, then genre, using
-//      getline(cin, ...) and store them in the reference
-//      parameters moodInput / genreInput.
 // ================================================================
 void displayWelcomeBanner() {
     cout << "Welcome to SPOTIFY!" << endl;
@@ -105,13 +96,6 @@ void getUserInputs(string &moodInput, string &genreInput) {
 // ================================================================
 // MEMBER 2: Aishah
 // Mood validation
-// TODO:
-//   1. Convert moodInput to lowercase (use toLowerCase() from
-//      Member 6's section).
-//   2. Loop while it is NOT one of: happy / sad / chill / focus.
-//      Inside the loop: print an error message and re-prompt
-//      with getline(cin, moodInput) to get a new value.
-//   3. Return the validated mood with the first letter capitalized.
 // ================================================================
 string validateMood(string moodInput) {
 
@@ -134,23 +118,11 @@ string validateMood(string moodInput) {
     return moodInput;
 }
 
-
-
-
-// ================================================================
-// ================================================================
 // ================================================================
 // MEMBER 3: Visshaa
 // Playlist recommendation
-// ----------------------------------------------------------------
-// 1. In getPlaylistName(): combine mood + genre into a playlist
-//    title, e.g. mood + " " + genre + " Mix".
-// 2. In getPlaylistDescription(): use if/else if on mood to
-//    return a one-line description for Happy / Sad / Chill / Focus.
 // ================================================================
 string getPlaylistName(string mood, string genre) {
-    // Build playlist name from mood + genre
-    // Example: mood = "Happy", genre = "Pop" -> "Happy Pop Mix"
     return mood + " " + genre + " Mix";
 }
 
@@ -176,15 +148,8 @@ string getPlaylistDescription(string mood) {
 // ================================================================
 // MEMBER 4: Dania
 // Subscription tier logic
-// TODO:
-//   1. Define price constants for Premium and Family plans.
-//   2. Using if/else on weeklyHours (and monthlyBudget), decide
-//      between "Free" / "Premium" / "Family".
-//   3. Set monthlyCost (passed by reference) to match the chosen
-//      plan, and return the plan name.
 // ================================================================
 string getSubscriptionPlan(double weeklyHours, double monthlyBudget, double &monthlyCost) {
-    // TODO (Dania): tier logic based on weeklyHours + monthlyBudget
     const double PREMIUM_PRICE = 14.90; // RM per month
     const double FAMILY_PRICE  = 29.90; // RM per month
 
@@ -223,7 +188,7 @@ string getSubscriptionPlan(double weeklyHours, double monthlyBudget, double &mon
 
 // ================================================================
 // MEMBER 5: Sabrina
-// Output Formatting Implementation
+// Output formatting
 // ================================================================
 void displayFinalResult(string mood, string genre, string playlistName,
                         string playlistDesc, string plan, double monthlyCost) {
@@ -254,33 +219,49 @@ void displayFinalResult(string mood, string genre, string playlistName,
 // ================================================================
 // MEMBER 6: Fakhira
 // Edge cases + finalize
-// TODO:
-//   1. toLowerCase(): loop through the string converting each
-//      character with tolower().
-//   2. getPositiveNumber(): loop reading a double with cin >>,
-//      reject cin.fail() or negative values (clear + ignore +
-//      re-prompt), and handle cin.eof() so it can't loop forever.
-//   3. validateGenre(): if genreInput is empty, return "Various";
-//      otherwise capitalize the first letter and return it.
-//   4. Do a final pass over the whole file: remove leftover TODOs,
-//      double check comments, and test the whole program end to end.
+// - toLowerCase(): shared helper used for case-insensitive checks
+// - getPositiveNumber(): rejects negative numbers and non-numeric
+//   input instead of letting the program crash or misbehave
+// - validateGenre(): handles empty genre input gracefully
 // ================================================================
 string toLowerCase(string text) {
-    // TODO (Fakhira): lowercase conversion loop
+    for (size_t i = 0; i < text.length(); i++) {
+        text[i] = tolower(text[i]);
+    }
     return text;
 }
 
 double getPositiveNumber(string prompt) {
-    // TODO (Fakhira): safe numeric input loop (handles negative,
-    // non-numeric, and end-of-input cases)
-    cout << prompt;
-    double value = 0.0;
-    cin >> value;
-    cin.ignore(10000, '\n');
+    double value;
+
+    while (true) {
+        cout << prompt;
+        cin >> value;
+
+        if (cin.eof()) {
+            cout << "\nNo more input detected. Exiting program.\n";
+            exit(0);
+        }
+
+        if (cin.fail() || value < 0) {
+            cin.clear();
+            cin.ignore(10000, '\n');
+            cout << "Invalid input. Please enter a positive number.\n";
+            continue;
+        }
+
+        cin.ignore(10000, '\n');
+        break;
+    }
+
     return value;
 }
 
 string validateGenre(string genreInput) {
-    // TODO (Fakhira): handle empty genre + capitalize first letter
+    if (genreInput.empty()) {
+        return "Various";
+    }
+
+    genreInput[0] = toupper(genreInput[0]);
     return genreInput;
 }
